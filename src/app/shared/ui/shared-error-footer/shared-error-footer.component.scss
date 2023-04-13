@@ -1,0 +1,11 @@
+.error-footer {
+    display: flex;
+    .alert-text {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-2);
+        color: var(--color-danger);
+        margin: var(--spacing-1) 0 0 var(--spacing-3);
+        white-space: nowrap;
+    }
+}

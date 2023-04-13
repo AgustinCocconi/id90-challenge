@@ -1,0 +1,5 @@
+<div class="input-container">
+    <ion-icon *ngIf="iconName" [name]="iconName" class="input-icon"></ion-icon>
+    <input class="text-gray-70 head" [id]="id" [value]="value" [type]="type" [placeholder]=" placeholder"
+        (keyup)="onChangeEmmit($event)" (focus)="onFocusEmmit()" [style.height.px]="inputHeight" />
+</div>

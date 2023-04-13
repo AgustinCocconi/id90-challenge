@@ -1,0 +1,47 @@
+.input-container {
+    position: relative;
+    width: 100%;
+
+    .input-icon {
+        font-size: 20px;
+        color: var(--color-gray-70);
+        position: absolute;
+        left: 16px;
+        top: 8px;
+    }
+
+    .input-icon + input {
+        padding-left: 48px !important;
+    }
+
+    input {
+        width: 100%;
+        outline: 1px solid #a1b0cc;
+        border: none;
+        background: #ffffff;
+        border-radius: 4px;
+        padding: 8px 12px;
+    }
+
+    input::placeholder {
+        color: var(--color-gray-50);
+    }
+
+    input:focus {
+        outline: 1px solid var(--color-primary);
+        box-shadow: none !important;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}

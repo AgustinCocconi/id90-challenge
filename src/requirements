@@ -1,0 +1,52 @@
+These are the requirements of the challenge:
+We ask you to build a frontend in Angular for the development of the test.
+We ask you to apply all the best practices and principles you consider necessary (software design patterns, SOLID principles, etc.) to implement readable, scalable, and well-organized code.
+We ask you to design an attractive, modern, and user-friendly interface for the application.
+Make sure that the designed application is responsive and adapts to different screen sizes.
+IMPORTANT: We ask you to create something personal and different from how it is currently done at ID90Travel. Please use your creativity.
+If possible, We would like you to use redux for state management in the application.
+Specifically, we ask you to make a web application that allows users to log in and search for hotels by consulting our API and displaying them on the map. For this, it must have:
+Login Form composed of the fields:
+Airline: the airline must be shown and selected from a list
+The list of airlines must be taken from the response of this endpoint: https://beta.id90travel.com/airlines
+Method: GET
+Username: text field
+Password: text field
+Authentication Endpoint:
+URL: https://beta.id90travel.com/session.json
+Method: POST
+Example Parameters:
+session[airline]: HAWAIIAN AIRLINES (HA)
+session[username]: hauser
+session[password]: 12345
+session[remember_me]: 1
+ 2. Search hotels form:
+Destination: text field
+Date Range: from and to dates
+Number of Travelers: The input that you choose, in this case, should be limited to an integer between 1 and 4
+Endpoint
+URL: https://beta.id90travel.com/api/v1/hotels.json
+Method: GET
+Example Parameters:
+guests[]: 2
+checkin: 2020-10-24
+checkout: 2020-10-25
+destination: Cancun
+keyword:
+rooms: 1
+longitude:
+latitude:
+sort_criteria: Overall
+sort_order: desc
+per_page: 25
+page: 1
+currency: USD
+price_low:
+price_high:
+ 3. Search results page:
+It is a page where a list is displayed with the search results in the format you choose.
+ 4. Use a Map of your choice to display the hotels on it
+Well, that’s all.
+Do not hesitate to contact us if you have any questions
+
+Ivan
