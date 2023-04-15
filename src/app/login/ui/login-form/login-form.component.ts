@@ -11,6 +11,7 @@ import { LoginFormData } from 'src/app/shared/interfaces/login-form-data.interfa
 export class LoginFormComponent implements OnInit {
   @Input() loginForm!: FormGroup;
   @Input() airlines!: Airline[];
+  @Input() loading!: boolean;
   @Output() submit = new EventEmitter<LoginFormData>();
 
   constructor() { }
@@ -19,7 +20,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("loginform", this.loginForm)
     if (this.loginForm.valid) {
       this.submit.emit(this.loginForm.value);
     }
@@ -27,6 +27,6 @@ export class LoginFormComponent implements OnInit {
 
   changeRememberMe(event: Event) {
     const target = event.target as HTMLInputElement;
-    this.loginForm.get('remember_me')?.setValue(target.checked)
+    this.loginForm.get('remember_me')?.setValue(target.checked);
   }
 }

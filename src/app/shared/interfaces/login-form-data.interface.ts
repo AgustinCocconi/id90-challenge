@@ -1,4 +1,4 @@
-import { Airline } from "./airline.interface";
+import { Airline } from './airline.interface';
 
 export interface LoginFormData {
     airline: Airline | null;

@@ -1,13 +1,14 @@
 <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
     <div>
-        <app-shared-select [selectOptions]="airlines" [value]="loginForm.get('airline')?.value"
+        <app-shared-select [selectOptions]="airlines" [value]="loginForm.get('airline')?.value" [selectHeight]="48"
             displayProperty="display_name" (onChange)="loginForm.get('airline')?.setValue($event)"></app-shared-select>
     </div>
 
     <div>
-        <app-shared-input type="text" id="username" [value]="loginForm.get('username')?.value" placeholder="Username"
-            [inputHeight]="48" (onChange)="loginForm.get('username')?.setValue($event)"></app-shared-input>
+        <app-shared-input type="text" id="username" [value]="loginForm.get('username')?.value" iconName="person"
+            placeholder="Username" [inputHeight]="48"
+            (onChange)="loginForm.get('username')?.setValue($event)"></app-shared-input>
         <ng-container
             *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.dirty && loginForm.get('username')?.touched"
             class="error">
@@ -19,7 +20,7 @@
 
     <div>
         <app-shared-input type="password" id="password" [value]="loginForm.get('password')?.value"
-            placeholder="Password" [inputHeight]="48"
+            iconName="lock-closed" placeholder="Password" [inputHeight]="48"
             (onChange)="loginForm.get('password')?.setValue($event)"></app-shared-input>
         <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.dirty && loginForm.get('password')?.touched"
             class="error">
@@ -37,7 +38,11 @@
     </label>
 
     <div class="mt-spacing-2">
-        <app-accept-button type="submit" [buttonHeight]="48" buttonText="Log In"></app-accept-button>
+        <app-accept-button *ngIf="!loading;else loadingTemplate" type="submit" [buttonHeight]="48"
+            [disabled]="!loginForm.valid" buttonText="Log In"></app-accept-button>
     </div>
-    <!-- <button (click)="loginForm.markAsTouched()" [disabled]="loginForm.invalid">Login</button> -->
 </form>
+
+<ng-template #loadingTemplate>
+    <img style="max-width: 55px;" src="../../../assets/images/loading-plane.gif" alt="loading">
+</ng-template>

@@ -1,0 +1,17 @@
+<div class="card-container shadow-small">
+    <div class="title head-bold">{{hotel.name}}</div>
+    <div class="carrousel-container">
+        <img *ngIf="currentImage" src="{{currentImage}}" alt="{{hotel.name}}" class="carousel-image"
+            alt="Carousel Image" (mouseover)="onMouseOver()" (mouseleave)="onMouseLeave()">
+    </div>
+    <div class="info-container flex space-between mt-spacing-3 head-bold">
+        <div>
+            <div>{{hotel.location_description}}</div>
+        </div>
+        <div>
+            <div class="flex mb-spacing-3"><ion-icon name="star" class="mr-spacing-2"></ion-icon>{{hotel.review_rating}}
+            </div>
+            <div>${{hotel.display_rate}}</div>
+        </div>
+    </div>
+</div>

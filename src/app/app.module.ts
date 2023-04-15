@@ -1,14 +1,17 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { metaReducers, reducers } from './app-state';
-import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from './app-state/effects/auth.effects';
+import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AppRoutingModule } from './app-routing.module';
+import { metaReducers, reducers } from './app-state';
+import { AuthEffects } from './app-state/effects/auth.effects';
+import { HotelsEffects } from './app-state/effects/hotels.effects';
+import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, HotelsEffects]),
+    BrowserAnimationsModule,
+    LayoutModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

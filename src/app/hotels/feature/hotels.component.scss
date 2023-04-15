@@ -1,0 +1,193 @@
+.hotels-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotels-container:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: url("../../../assets/images/BlankMap-World-v5.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 64px;
+
+    .gradient-text {
+        margin-top: 100px;
+        font-size: 96px;
+        max-width: 635px;
+        line-height: 100px;
+        font-weight: 800;
+        background: radial-gradient(circle at center, #6654fd, #4e8efd);
+        background-clip: text;
+        text-align: center;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    ion-icon {
+        font-size: 18px;
+    }
+}
+
+app-hotels-list {
+    width: 100%;
+}
+
+.modal-container {
+    position: relative;
+    height: 80vh;
+}
+
+// this should be it's own component
+.search-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    gap: 12px;
+    .input-container {
+        position: relative;
+        width: 100%;
+        height: 48px;
+        ion-icon {
+            font-size: 20px;
+            color: var(--color-gray-70);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            translate: 0 -50%;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            outline: 1px solid #a1b0cc;
+            border: none;
+            background: #ffffff;
+            border-radius: 4px;
+            padding: 8px 12px;
+            padding-left: 48px !important;
+        }
+
+        input::placeholder {
+            color: var(--color-gray-50);
+        }
+
+        input:focus {
+            outline: 1px solid var(--color-primary);
+            box-shadow: none !important;
+        }
+    }
+
+    .flex-container {
+        min-width: 30%;
+        max-width: 30%;
+    }
+
+    .count-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 48px;
+        background-color: white;
+        outline: 1px solid #a1b0cc;
+        border-radius: 4px;
+        padding: 0 8px;
+        .count-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: #fafafa;
+            border-radius: 4px;
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+
+            ion-icon {
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.fs-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 48px;
+        .gradient-text {
+            margin-top: 60px;
+            font-size: 60px;
+            max-width: 400px;
+            line-height: 64px;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding: 0 24px;
+        .gradient-text {
+            margin-top: 20px;
+            font-size: 40px;
+            max-width: 300px;
+            line-height: 42px;
+        }
+
+        .search-container {
+            flex-direction: column;
+            align-items: flex-start;
+            .flex-container {
+                max-width: 100%;
+                min-width: 100%;
+            }
+            .count-button-container {
+                width: 100%;
+                .accept-container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

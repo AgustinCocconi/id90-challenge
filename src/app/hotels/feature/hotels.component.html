@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="hotels-container">
+    <div class="container">
+        <h1 class="gradient-text">It’s more than just a trip</h1>
+
+        <!-- this should be it's own component -->
+        <div class="search-container mt-spacing-8">
+            <div class="flex-container">
+                <app-shared-input type="text" id="destination" [value]="searchForm.get('destination')?.value"
+                    placeholder="Destination" [inputHeight]="48" iconName="airplane-outline"
+                    (onChange)="searchForm.get('destination')?.setValue($event)"></app-shared-input>
+            </div>
+            <div class="input-container flex-container">
+                <!-- this should be it's own component -->
+                <input placement="bottom" class="head text-gray-70" placeholder="Check-in — Check-out"
+                    [bsValue]="datePickerValue" bsDaterangepicker #dp="bsDaterangepicker"
+                    (bsValueChange)="valueChange($event)">
+                <ion-icon name="calendar-outline" (click)="dp.show()"></ion-icon>
+            </div>
+
+            <div class="flex gap-4 count-button-container">
+                <!-- this should be it's own component -->
+                <div class="count-container head text-gray-70">
+                    <div class="count-button" (click)="decrement()"><ion-icon name="remove-outline"></ion-icon></div>
+                    <div>
+                        {{this.searchForm.get('guests')?.value}}
+                        {{this.searchForm.get('guests')?.value > 1 ? 'Guests' : 'Guest'}}
+                    </div>
+                    <div class="count-button" (click)="increment()"><ion-icon name="add-outline"></ion-icon></div>
+                </div>
+
+                <div class="accept-container">
+                    <app-accept-button [buttonHeight]="48" buttonText="Search" [disabled]="!searchForm.valid"
+                        (clickEmitter)="search()"></app-accept-button>
+                </div>
+            </div>
+        </div>
+
+        <ng-container *ngIf="hotels$ | async as hotels">
+            <ng-container *ngIf="hotels.length;else loadingTemplate">
+                <div class="mt-spacing-5">
+                    <app-accept-button [buttonHeight]="48" buttonText="Show in map"
+                        (clickEmitter)="openMap(template)"></app-accept-button>
+                </div>
+                <app-hotels-list [hotels]="hotels"></app-hotels-list>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-container">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Modal</h4>
+            <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+        </div>
+        <div class="fs-container">
+            <app-map [options]="mapOptions" [markers]="markers"></app-map>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #loadingTemplate>
+    <img style="max-width: 250px;" class="mt-spacing-6" src="../../../assets/images/loading-plane.gif" alt="loading">
+</ng-template>

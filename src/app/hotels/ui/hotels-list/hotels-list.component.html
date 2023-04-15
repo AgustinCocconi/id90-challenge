@@ -1,0 +1,9 @@
+<section class="card-list-container mt-spacing-6" *ngIf="hotels?.length; else emptyTemplate">
+    <ng-container *ngFor="let hotel of hotels">
+        <app-hotel-card [hotel]="hotel"></app-hotel-card>
+    </ng-container>
+</section>
+
+<ng-template #emptyTemplate>
+    No results found
+</ng-template>

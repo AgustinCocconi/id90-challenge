@@ -3,10 +3,13 @@ import { LoginCredentials } from 'src/app/shared/interfaces/login-credentials.in
 export const USER_LOGIN = '[Login Page] Login';
 export const USER_LOGIN_SUCCESS = '[Login Page] Login Success';
 export const USER_LOGIN_FAILURE = '[Login Page] Login Failure';
+export const CLEAR_REDIRECT_URL = '[Login Page] Clear Redirect URL';
 export const GET_AIRLINES = '[Login Page] Get Airlines';
 export const GET_AIRLINES_SUCCESS = '[Login Page] Get Airlines Success';
 export const GET_AIRLINES_FAILURE = '[Login Page] Get Airlines Failure';
 
+
+// users
 export const login = createAction(
     USER_LOGIN,
     props<{ credentials: LoginCredentials }>()
@@ -15,13 +18,19 @@ export const login = createAction(
 export const loginSuccess = createAction(
     USER_LOGIN_SUCCESS,
     props<any>()
-)
+);
 
 export const loginFailure = createAction(
     USER_LOGIN_FAILURE,
-    props<{ message: string }>()
-)
+    props<{ error: any }>()
+);
 
+export const clearRedirectUrl = createAction(
+    CLEAR_REDIRECT_URL,
+);
+
+
+// airlines
 export const getAirlines = createAction(
     GET_AIRLINES
 );
@@ -29,9 +38,9 @@ export const getAirlines = createAction(
 export const getAirlinesSuccess = createAction(
     GET_AIRLINES_SUCCESS,
     props<any>()
-)
+);
 
 export const getAirlinesFailure = createAction(
     GET_AIRLINES_FAILURE,
     props<{ error: any }>()
-)
+);

@@ -1,0 +1,49 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    height: 480px;
+    color: var(--color-gray-70);
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: white;
+    justify-content: space-between;
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        font-weight: 700;
+        text-align: center;
+        min-height: 68px;
+    }
+
+    .carrousel-container {
+        display: flex;
+        overflow: hidden;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .info-container {
+        padding: 8px 24px;
+        ion-icon {
+            color: var(--color-primary);
+            font-size: 20px;
+        }
+    }
+}
+
+.card-container:hover {
+    color: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        width: 326px;
+        height: 410px;
+    }
+}

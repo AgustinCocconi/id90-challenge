@@ -1,0 +1,35 @@
+.nav-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    z-index: 99;
+    height: 80px;
+    padding: 0 var(--spacing-6);
+
+    img {
+        max-width: 150px;
+    }
+
+    ul {
+        display: flex;
+        gap: var(--spacing-7);
+        list-style: none;
+        a {
+            color: var(--color-gray-60);
+            text-decoration: none;
+        }
+        a:hover,
+        li a.active {
+            color: var(--color-primary);
+        }
+    }
+
+    ion-icon {
+        color: var(--color-primary);
+        font-size: 24px;
+        cursor: pointer;
+    }
+}

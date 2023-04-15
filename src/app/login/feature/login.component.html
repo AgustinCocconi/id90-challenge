@@ -1,12 +1,13 @@
 <div class="login-container">
     <div class="container shadow-medium">
         <img src="../../../assets/images/wonderlust-logo.png" alt="logo">
-        <div *ngIf="airlines$ | async as airlines; else loading" style="width:100%" class="mt-spacing-3">
-            <app-login-form (submit)="login($event)" [loginForm]="loginForm" [airlines]="airlines"></app-login-form>
+        <div *ngIf="airlines$ | async as airlines; else loadingTemplate" style="width:100%" class="mt-spacing-3">
+            <app-login-form (submit)="login($event)" [loginForm]="loginForm" [airlines]="airlines"
+                [loading]="loading"></app-login-form>
         </div>
     </div>
 </div>
 
-<ng-template #loading>
-    <img style="max-width: 250px;" src="../../../assets/images/plane_loading.d89d7baa.gif" alt="loading">
+<ng-template #loadingTemplate>
+    <img style="max-width: 250px;" src="../../../assets/images/loading-plane.gif" alt="loading">
 </ng-template>

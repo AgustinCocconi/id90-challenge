@@ -9,8 +9,6 @@ import { SharedSelectComponent } from 'src/app/shared/ui/shared-select/shared-se
 import { LoginFormComponent } from '../ui/login-form/login-form.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-
-console.log("login module")
 @NgModule({
   declarations: [
     LoginComponent,
