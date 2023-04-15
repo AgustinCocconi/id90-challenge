@@ -23,6 +23,7 @@ const hotelsReducer = createReducer(
     initialState,
     on(hotelsActions.getHotels, state => ({
         ...state,
+        hotels: [],
         isLoading: true
     })),
     on(hotelsActions.getHotelsSuccess, (state, { body }) => ({

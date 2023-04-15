@@ -494,8 +494,14 @@ body {
     word-spacing: 0.001em;
     overflow-x: hidden;
     margin: 0px;
+    height: 100vh;
+    height: 100svh;
     color: var(--color-gray-90);
     // background-color:#EB1F3C;
+}
+
+app-root {
+    height: 100%;
 }
 
 //datepicker
